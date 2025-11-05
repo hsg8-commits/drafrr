@@ -1,0 +1,7 @@
+# Frontend Environment Variables
+# Copy this file to .env and fill in your values
+
+# API URL - Set this to your backend URL
+# For local development: http://localhost:8000
+# For production: https://drafr-3.onrender.com
+REACT_APP_API_URL=https://drafr-3.onrender.com
