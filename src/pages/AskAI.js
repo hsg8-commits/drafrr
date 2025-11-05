@@ -95,4 +95,3 @@ const AskAI = () => {
 };
 
 export default AskAI;
-   </div>
