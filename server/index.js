@@ -26,7 +26,15 @@ const server = http.createServer(app); // Wrap app with HTTP server
 initSocket(server);
 
 //  Middlewares
-app.use(cors({ origin: ["http://localhost:3000", "http://localhost:3001"], credentials: true }));
+app.use(cors({ 
+  origin: [
+    "http://localhost:3000", 
+    "http://localhost:3001", 
+    "https://drafrr.vercel.app",
+    "https://drafr-3.onrender.com"
+  ], 
+  credentials: true 
+}));
 app.use(cookieParser());
 app.use(express.json());
 

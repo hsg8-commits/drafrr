@@ -1,13 +1,14 @@
 
 
 import { useEffect, useState } from "react";
+import { SOCKET_URL } from "../config/api";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 import MedicalHistoryPanel from "../components/MedicalHistoryPanel";
 
-const socket = io("http://localhost:8000", {
+const socket = io(SOCKET_URL, {
   withCredentials: true,
   transports: ["websocket"],
 });

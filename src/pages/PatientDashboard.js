@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
+import { API_ENDPOINTS, SOCKET_URL } from "../config/api";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import ChatBox from "../components/ChatBox";
@@ -15,7 +16,7 @@ if (typeof window !== "undefined" && !window.Razorpay) {
   document.body.appendChild(script);
 }
 
-const socket = io("http://localhost:8000", {
+const socket = io(SOCKET_URL, {
   withCredentials: true,
   transports: ["websocket"],
 });
@@ -43,7 +44,7 @@ const PatientDashboard = () => {
   const handleBuyPremium = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/payment/create-order",
+        API_ENDPOINTS.createOrder,
         {},
         { withCredentials: true }
       );
@@ -61,7 +62,7 @@ const PatientDashboard = () => {
           try {
             const token = localStorage.getItem("token");
             const verify = await axios.post(
-              "http://localhost:8000/api/payment/verify",
+              API_ENDPOINTS.verifyPayment,
               response,
               {
                 headers: {
@@ -103,7 +104,7 @@ const PatientDashboard = () => {
   const handleSeeMedicalHistory = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/api/medical-notes/${user._id}`
+        API_ENDPOINTS.getMedicalNotes(user._id)
       );
       setMedicalNotes(data.notes);
     } catch (err) {

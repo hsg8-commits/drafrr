@@ -1,4 +1,5 @@
 
+import { API_ENDPOINTS } from "../config/api";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
@@ -35,7 +36,7 @@ const BookAppointmentPage = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/api/appointment/book", {
+      const res = await axios.post(API_ENDPOINTS.bookAppointment, {
         ...formData,
         doctorEmail: doctor.email,
       });
@@ -61,7 +62,7 @@ const BookAppointmentPage = () => {
         return;
       }
 
-      const res = await axios.post("http://localhost:8000/api/appointment/verify-otp", {
+      const res = await axios.post(API_ENDPOINTS.verifyOtp, {
         email,
         otp
       });
@@ -81,7 +82,7 @@ const BookAppointmentPage = () => {
   const handleConfirmAppointment = async () => {
     try {
       const email = localStorage.getItem("doctorEmail");
-      const res = await axios.post("http://localhost:8000/api/appointment/confirm", {
+      const res = await axios.post(API_ENDPOINTS.confirmAppointment, {
         email,
       });
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_ENDPOINTS } from "../config/api";
 
 
 const SignupPage = () => {
@@ -64,7 +65,7 @@ const SignupPage = () => {
     if (!validateFields()) return;
 
     try {
-      const signupRes = await axios.post("http://localhost:5000/api/v1/signup", {
+      const signupRes = await axios.post(API_ENDPOINTS.signup, {
         ...formData,
       });
 

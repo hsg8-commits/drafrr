@@ -23,7 +23,7 @@ const Navbar = () => {
   const handleProtectedClick = (type) => {
     // Special case: if not logged in and trying to access dashboard → scroll to footer
     if (type === "dashboard" && !user) {
-      toast.error("Please login first");
+      toast.error("الرجاء تسجيل الدخول أولاً");
       const footer = document.getElementById("footer");
       if (footer) footer.scrollIntoView({ behavior: "smooth" });
       return;
@@ -31,7 +31,7 @@ const Navbar = () => {
 
     // Other protected routes
     if (!user) {
-      toast.error("Please login first");
+      toast.error("الرجاء تسجيل الدخول أولاً");
       return;
     }
 
@@ -46,7 +46,7 @@ const Navbar = () => {
 
       case "chat":
         if (!user.isPremium) {
-          toast.error("Be a Premium Member first");
+          toast.error("يجب أن تكون عضواً مميزاً أولاً");
           return;
         }
         const chatAppURL = `http://localhost:3001/chat?patientEmail=${user.email}`;
@@ -67,7 +67,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="border-4 border-black bg-gradient-to-br from-purple-800 to-blue-800 text-white px-4 py-3 sm:px-6 sm:py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg">
+      <nav className="border-4 border-black bg-gradient-to-br from-purple-800 to-blue-800 text-white px-4 py-3 sm:px-6 sm:py-4 flex flex-col sm:flex-row justify-between items-center shadow-lg" dir="rtl">
         {/* Logo */}
         <div className="text-2xl font-bold mb-3 sm:mb-0">
           <span className="text-white">Doc</span>
@@ -80,35 +80,35 @@ const Navbar = () => {
             to="/"
             className="px-3 sm:px-4 py-1 border-2 border-black text-black bg-white rounded shadow-md hover:bg-gradient-to-br hover:from-purple-800 hover:to-blue-800 hover:text-white transition-all duration-200"
           >
-            Home
+            الرئيسية
           </Link>
 
           <button
             onClick={() => handleProtectedClick("ask-ai")}
             className="px-3 sm:px-4 py-1 border-2 border-black text-black bg-white rounded shadow-md hover:bg-gradient-to-br hover:from-purple-800 hover:to-blue-800 hover:text-white transition-all duration-200"
           >
-            Ask AI
+            اسأل الذكاء الاصطناعي
           </button>
 
           <button
             onClick={() => handleProtectedClick("connect-doctors")}
             className="px-3 sm:px-4 py-1 border-2 border-black text-black bg-white rounded shadow-md hover:bg-gradient-to-br hover:from-purple-800 hover:to-blue-800 hover:text-white transition-all duration-200"
           >
-            Connect Doctors
+            تواصل مع الأطباء
           </button>
 
           <button
             onClick={() => handleProtectedClick("chat")}
             className="px-3 sm:px-4 py-1 border-2 border-black text-black bg-white rounded shadow-md hover:bg-gradient-to-br hover:from-purple-800 hover:to-blue-800 hover:text-white transition-all duration-200"
           >
-            Connect via Chat
+            الدردشة المباشرة
           </button>
 
           <button
             onClick={() => handleProtectedClick("dashboard")}
             className="px-3 sm:px-4 py-1 border-2 border-black text-black bg-white rounded shadow-md hover:bg-gradient-to-br hover:from-purple-800 hover:to-blue-800 hover:text-white transition-all duration-200"
           >
-            Dashboard
+            لوحة التحكم
           </button>
         </div>
 
@@ -118,12 +118,12 @@ const Navbar = () => {
             <>
               <Link to="/signup">
                 <button className="px-3 sm:px-4 py-1 font-bold border-2 border-black text-black bg-white rounded shadow-md hover:bg-gradient-to-br hover:from-purple-800 hover:to-blue-800 hover:text-white transition-all duration-200">
-                  Sign Up
+                  إنشاء حساب
                 </button>
               </Link>
               <Link to="/login">
                 <button className="px-3 sm:px-4 py-1 font-bold border-2 border-black text-black bg-white rounded shadow-md hover:bg-gradient-to-br hover:from-purple-800 hover:to-blue-800 hover:text-white transition-all duration-200">
-                  Login
+                  تسجيل الدخول
                 </button>
               </Link>
             </>
@@ -132,7 +132,7 @@ const Navbar = () => {
               onClick={handleLogout}
               className="px-3 sm:px-4 py-1 font-bold border-2 border-black text-black bg-white rounded shadow-md hover:bg-gradient-to-br hover:from-purple-800 hover:to-blue-800 hover:text-white transition-all duration-200"
             >
-              Logout
+              تسجيل الخروج
             </button>
           )}
         </div>

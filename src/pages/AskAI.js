@@ -1,8 +1,7 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import { FaPaperPlane } from "react-icons/fa";
+import { API_ENDPOINTS } from "../config/api";
 
 const AskAI = () => {
   const [messages, setMessages] = useState([]);
@@ -18,7 +17,7 @@ const AskAI = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:8000/api/v1/ask-ai", {
+      const res = await axios.post(API_ENDPOINTS.askAI, {
         message: input,
       });
 
@@ -96,3 +95,4 @@ const AskAI = () => {
 };
 
 export default AskAI;
+   </div>

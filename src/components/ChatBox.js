@@ -1,10 +1,11 @@
 
 
 
+import { SOCKET_URL, API_ENDPOINTS } from "../config/api";
 import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:8000");
+const socket = io(SOCKET_URL);
 
 const ChatBox = ({ currentUserEmail }) => {
   const [message, setMessage] = useState("");
@@ -43,7 +44,7 @@ const ChatBox = ({ currentUserEmail }) => {
 
       try {
         const res = await fetch(
-          `http://localhost:8000/api/v1/chat/history?senderEmail=${currentUserEmail}&receiverEmail=${receiverEmail}`
+          API_ENDPOINTS.chatHistory(currentUserEmail, receiverEmail)
         );
         const data = await res.json();
         if (res.ok && data.success) {

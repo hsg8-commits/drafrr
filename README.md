@@ -1,6 +1,13 @@
-# 🩺 DocTreat - Your Smart Healthcare Companion
+# 🩺 DocTreat - منصتك الطبية الذكية
 
-DocTreat is a full-stack healthcare platform built to simplify and streamline the interaction between **patients** and **doctors**. It integrates appointment booking, medical document uploads, health history tracking, and AI-powered consultations in a modern, secure, and responsive web interface.
+DocTreat هي منصة رعاية صحية متكاملة مصممة لتبسيط وتسهيل التفاعل بين **المرضى** و**الأطباء**. تتضمن حجز المواعيد، رفع المستندات الطبية، تتبع التاريخ الصحي، واستشارات مدعومة بالذكاء الاصطناعي في واجهة ويب حديثة وآمنة ومتجاوبة.
+
+## 🌐 الروابط المباشرة
+
+- **الواجهة الأمامية (Frontend)**: [https://drafrr.vercel.app](https://drafrr.vercel.app)
+- **الخادم (Backend API)**: [https://drafr-3.onrender.com](https://drafr-3.onrender.com)
+
+---
 
 ---
 
@@ -145,9 +152,14 @@ src/
 
 ---
 
-## 🧪 How to Run
+## 🧪 كيفية التشغيل المحلي
 
-### 🐢 Backend
+### 📋 المتطلبات الأساسية
+- Node.js (الإصدار 14 أو أحدث)
+- MongoDB (محلياً أو MongoDB Atlas)
+- حساب Cloudinary (اختياري)
+
+### 🐢 تشغيل الخادم (Backend)
 
 ```bash
 cd server
@@ -155,23 +167,34 @@ npm install
 npm run dev
 ```
 
-Make sure your `.env` includes:
+تأكد من وجود ملف `.env` في مجلد server يحتوي على:
 
 ```env
-PORT=5000
-MONGO_URI=your_mongodb_connection
+PORT=8000
+MONGODB_URI=your_mongodb_connection
 JWT_SECRET=your_jwt_secret
 CLOUDINARY_NAME=your_cloudinary_name
 CLOUDINARY_KEY=your_key
 CLOUDINARY_SECRET=your_secret
 ```
 
-### ⚡ Frontend
+### ⚡ تشغيل الواجهة الأمامية (Frontend)
 
 ```bash
-cd client  # or the main root if merged
+# في المجلد الرئيسي
 npm install
 npm start
+```
+
+تأكد من وجود ملف `.env` في المجلد الرئيسي يحتوي على:
+
+```env
+REACT_APP_API_URL=http://localhost:8000
+```
+
+للإنتاج، استخدم:
+```env
+REACT_APP_API_URL=https://drafr-3.onrender.com
 ```
 
 ---
@@ -194,7 +217,16 @@ npm start
 
 ---
 
-## 📧 Contact
+## 📧 تواصل معنا
 
-Created by [Prakash] — A full-stack developer passionate about healthcare tech.  
-Feel free to connect on [LinkedIn] or contribute via pull requests.
+**DocTreat** - منصة طبية متكاملة مصممة لخدمة المرضى والأطباء في المملكة العربية السعودية
+
+- **البريد الإلكتروني**: dr.afrah@mezo.anonaddy.com
+- **الهاتف**: +966541908619
+- **الموقع**: المملكة العربية السعودية
+
+---
+
+## 🤝 المساهمة
+
+نرحب بالمساهمات! يرجى فتح Pull Request أو Issue للمشاركة في تطوير المنصة.

@@ -1,4 +1,5 @@
 
+import { API_ENDPOINTS } from "../config/api";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -14,7 +15,7 @@ const ConnectDoctors = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:8000/api/v1/doctors/search/city?city=${city}`
+        `${API_ENDPOINTS.searchDoctorsByCity(city)}`
       );
       const data = await res.json();
 
